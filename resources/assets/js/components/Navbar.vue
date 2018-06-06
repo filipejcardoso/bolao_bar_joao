@@ -2,7 +2,7 @@
 <div>
   <nav>
     <div class="nav-wrapper default-color-1">
-      <a href="#"><span class="brand-logo center">mogibahr.com.br</span></a>
+      <a href="#"><span class="brand-logo center">bardojoao.com.br</span></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 

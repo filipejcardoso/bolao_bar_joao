@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
-        <title>MogibahR - Bolão Copa 2018</title>
+        <title>Bar do João - Bolão Copa 2018</title>
         
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="MogiahR">
+        <meta name="description" content="Bar do João">
         <meta name="keywords" content="Bar, Cerveja, Mogi, Bolão, Copa">
         <meta name="robots" content="index, follow">
-        <meta name="author" content="MogibahR">
+        <meta name="author" content="Bar do João">
         <meta name="theme-color" content="#212121">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -9,13 +9,8 @@
                       <li>
                         <img src="images/index/slider_one.jpg">
                         <div class="caption center-align">
-                          <h3>Bolão MogibahR</h3>
+                          <h3>Bolão Bar do João</h3>
                           <h5 class="light grey-text text-lighten-3">Leia o regulamento e participe</h5>
-                        </div>
-                      </li>
-                      <li>
-                        <img src="images/index/bolao.jpg">
-                        <div class="caption center-align">
                         </div>
                       </li>
                     </ul>
@@ -23,45 +18,48 @@
             </div>
 
             <div class="col s12">
-
-              <h4>1. COMO PARTICIPAR</h4>
-              <p>Preencher as apostas, na folha oficial Mogibahr, entregar e efetuar o pagamento no valor de R$30,00. Sendo que R$5,00 ficara retido para organização e manutenção do bolão.</p>
+              <h4> Regulamento </h4>
 
               <br/>
 
-              <h4>2. PONTUAÇÃO</h4>
-              <p>2.1 A pontuação dos participantes será feita em função de seus prognósticos para o resultado e o placar das partidas, conforme abaixo. Por resultado entende-se a indicação de vitória/derrota deste ou daquele time (incluindo-se o tempo regulamentar e prorrogação, excluindo a disputa de pênaltis, quando houver). A pontuação dos acertos será feita a partir dos seguintes critérios não acumulativos:</p><br/>
-              <p>Apostando que a partida terá um vencedor:</p>
-              <p>Acerto do placar exato – 25 pontos.</p>
-              <p>Acerto apenas do time vencedor – 10 pontos</p><br/>
-              <p>Apostando que a partida terminará empatada:</p>
-              <p>Acerto do placar exato – 25 pontos.</p>
-              <p>Acerto do empate não exato – 10 pontos.</p>
+              <p>1º Na Primeira Fase da Copa cada palpite certo de  cada jogo vale 01 ponto;</p>
+              <br/>
 
-              <h4>3. CRITÉRIO DE DESEMPATE</h4>
-              <p>3.1 Serão considerados, para fins de desempate os seguintes critérios, na respectiva ordem:</p>
-              <p>O maior número de acertos de placar em cheio (PC);</p>
-              <p>O maior número de acertos do escore do vencedor (PV);</p>
-              <p>O maior número de acertos do escore do perdedor (PP);</p>
-              <p>O maior número de acertos dos vencedores (AV).</p>
+              <p>2º Cada palpite certo de cada seleção que irá para as Oitavas de Final vale 02 pontos (não precisa acertar se é 1º ou 2º colocado do grupo);</p>
+              <br/>
 
-             <br/>
+              <p>3º Cada palpite certo da seleções que irão fazer os confrontos das Quartas de Final vale 03 pontos;</p>
+              <br/>
 
-              <h4>4. PREMIAÇÃO</h4>
-              <p>4.1 Contando que não acontece nenhum a premiação será da seguinte forma:</p>
-              <p>1º colocado – 55% do valor arrecado</p>
-              <p>2º colocado – 30% do valor arrecado</p>
-              <p>3º colocado – 10% do valor arrecado</p>
-              <p>Ulitmo Colocado (Lanterna) – 5% do valor arrecado</p>
-             <br/>
-              <p>4.2. Caso haja empate, o prêmio será divido entre os ganhadores, com isso pode acontecer que o primeiro colocado receba um valor final menor que o segundo colocado.</p>
+              <p>4º Cada palpite certo das seleções que irão fazer os confrontos da Semi Final vale 04 pontos;</p>
+              <br/>
 
-             <br/>
+              <p>5º Cada palpite certo da seleção que irá fazer o confronto do 3º e 4º lugar vale 05 pontos;</p>
+              <br/>
 
-              <h4>5. MATA MATA</h4>
-              <p>5.1. Os participantes serão responsáveis por fazer e conferir suas apostas, até um dia antes do jogo de cada fase;</p>
-              <p>5.2. As apostas poderão ser feitas pessoalmente, ou pelo grupo do whatsApp.</p>
-             <br/>
+              <p>6º Cada palpite certo da seleção que irá fazer o confronto da final vale 06 pontos;</p>
+              <br/>
+
+              <p>7º Pontuação por palpite certo da colocação final da Copa do Mundo 2018:</p>
+              <p>1º Lugar = 10 pontos</p>
+              <p>2º Lugar = 06 pontos</p>
+              <p>3º Lugar = 04 pontos</p>
+              <p>4º Lugar = 002 pontos</p>
+              <br/>
+
+              <p>8º Pontuação Extra cada acerto para estes palpites valerá:</p>
+              <p>Artilheiro da Copa = 10 pontos</p>
+              <p>Melhor Ataque = 06 pontos</p>
+              <p>Melhor Defesa = 04 pontos</p>
+              <br/>
+
+              <p>9º Divisão da Arrecadação final do Bolão:</p>
+              <p>O valor total arrecadado será divido em 04 ganhadores de acordo com a pontuação final da seguinte forma</p>
+              <p>1º Lugar = 50%</p>
+              <p>2º Lugar = 25%</p>
+              <p>3º Lugar = 15%</p>
+              <p>4º Lugar = 10%</p>
+              <br/>
 
             </div>
 
