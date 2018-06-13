@@ -24,7 +24,7 @@ Vue.component('lista-participantes',ListaParticipantes);
 Vue.component('apostas',Apostas);
 
 //============CONSTANTES=====================
-window.api = "copa.eletrobidu.com.br";
+window.api = "bardojoao.com.br";
 // window.api = "copa.com";
 
 const app = new Vue({

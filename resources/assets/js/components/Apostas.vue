@@ -2,6 +2,68 @@
 	<div>
 	  <h5>{{this.$store.state.participante.nome}}</h5>
 
+    <br/>
+
+        <div class="row">
+            <div class="col s12 m3">
+                  <label>1º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>1º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+            <div class="col s12 m3">
+                  <label>2º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>2º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+            <div class="col s12 m3">
+                  <label>3º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>3º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+            <div class="col s12 m3">
+                  <label>4º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>4º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+          </div>
+
+          <br/><br/>
+
+        <div class="row">
+
+            <div class="col s12 m4">
+                  <label>Artilheiro</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>Artilheiro</option>
+                    <option v-for="(item) in this.$store.state.jogadores" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+            <div class="col s12 m4">
+                  <label>Melhor Ataque</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>Ataque</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+            <div class="col s12 m4">
+                  <label>Melhor Defesa</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>Defesa</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+          </div>
+
+          <br/><br/>
+
         <div class="row">
           <div class="col s12 m6"  v-for="(item,index) in this.$store.state.participante.apostas" :key="item.id">
             <div class="row valign-wrapper reset">
@@ -28,11 +90,73 @@
             <div v-if="(index+1)%6==0"><br/><br/><br/><br/><br/></div>
             </div>
           </div>
+
+        <h5>Oitavas</h5>
+        <br/>
+
+        <div class="row">
+            <div class="col s12 m3">
+                  <label>1º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>1º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+        </div>
+
+        <h5>Quartas</h5>
+        <br/>
+
+        <div class="row">
+            <div class="col s12 m3">
+                  <label>1º Lugar</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>1º Lugar</option>
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" value="" class="left">{{item.nome}}</option>
+                  </select>
+              </div>
+        </div>
+
     </div>
 </template>
 <script>
 export default {
+created()
+{
+    this.loadRecursos();
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+
+},
 methods: {
+ loadRecursos(){
+      this.axios.get('http://'+window.api+'/api/times')
+      .then(response => {
+          const payload = response.data['records'];
+          this.$store.commit('CHANGE_TIMES', payload)
+      })
+      .catch(e => {
+        alert(e)
+      });
+
+      this.axios.get('http://'+window.api+'/api/jogadores')
+      .then(response => {
+          const payload = response.data['records'];
+          this.$store.commit('CHANGE_JOGADORES', payload)
+      })
+      .catch(e => {
+        alert(e)
+      });
+    },
+ loadApostasFinais(){
+      this.axios.get(`http://${window.api}/api/participantes${this.$store.state.id}\apostas_finais`)
+      .then(response => {
+      })
+      .catch(e => {
+        alert(e)
+      })
+    },
     updateAposta($id){
       const url = `http://${window.api}/api/participantes/${this.$store.state.id}/apostas/${$id}`;
       const payload = {"records":[{"escore1":`${$(`#input_1_${$id}`).val()}`,"escore2":`${$(`#input_2_${$id}`).val()}`}]};

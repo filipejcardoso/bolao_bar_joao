@@ -26,8 +26,19 @@
                 <div class="col s2 center-align">
                   <img class="responsive-img bandeira" v-bind:src="`images/times/${item.foto1}`">
                 </div>
-                <div class="col s4 center-align">
-                    <h5>{{item.escore1}}x{{item.escore2}}</h5>
+                <div class="col s4">
+                    <div>
+                      <div class="status_aposta status_left red"></div>
+                      <div class="status_aposta status_right green"></div>
+                    </div>
+                    <div>
+                      <div class="status_aposta status_left green"></div>
+                      <div class="status_aposta status_right red"></div>
+                    </div>
+                    <div>
+                      <div class="status_aposta status_left gray"></div>
+                      <div class="status_aposta status_right gray"></div>
+                    </div>
                 </div>
                 <div class="col s2 center-align">
                   <img class="responsive-img bandeira" v-bind:src="`images/times/${item.foto2}`">
@@ -56,4 +67,7 @@ export default {
 	.pontos,.escore_vencedor,.acerto_vencedor{background-color: #eee!important;}
   .bandeira{max-width: 40px!important;}
   .horario{font-size: 13px; color: #888;}
+  .status_aposta{width: 10px!important; height: 10px!important;}
+  .status_left{float: left!important;}
+  .status_right{float: right!important;}
 </style>

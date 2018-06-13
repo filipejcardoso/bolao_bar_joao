@@ -15,6 +15,19 @@ Route::group(['prefix' =>'participantes'],function()
 		Route::get('', ['uses' => 'ApostasController@index']);
 		Route::patch('{id}', ['uses' => 'ApostasController@update']);
 	});
+	Route::group(['prefix' =>'/{participantes}/apostas_finais'],function()
+	{
+		Route::get('', ['uses' => 'ApostasFinaisController@index']);
+		Route::patch('{id}', ['uses' => 'ApostasFinaisController@update']);
+	});
+});
+Route::group(['prefix' =>'/times'],function()
+{
+	Route::get('', ['uses' => 'TimesController@index']);
+});
+Route::group(['prefix' =>'/jogadores'],function()
+{
+	Route::get('', ['uses' => 'JogadoresController@index']);
 });
 
 

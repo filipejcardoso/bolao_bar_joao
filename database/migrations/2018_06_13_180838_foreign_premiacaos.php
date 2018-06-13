@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CascadeParticipantes extends Migration
+class ForeignPremiacaos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CascadeParticipantes extends Migration
      */
     public function up()
     {
-        Schema::table('apostas', function (Blueprint $table) {
-            $table->dropForeign('apostas_participante_id_foreign');
+        Schema::table('apostas_premiacaos', function (Blueprint $table) {
+            $table->unsignedInteger('participante_id');
             $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
+            $table->foreign('artilheiro')->references('id')->on('jogadores');
+            $table->foreign('ataque')->references('id')->on('times');
+            $table->foreign('defesa')->references('id')->on('times');
         });
     }
 
@@ -26,7 +29,7 @@ class CascadeParticipantes extends Migration
      */
     public function down()
     {
-        Schema::table('apostas', function (Blueprint $table) {
+        Schema::table('apostas_premiacaos', function (Blueprint $table) {
             //
         });
     }

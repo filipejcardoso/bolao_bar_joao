@@ -44,7 +44,7 @@
               <p>1º Lugar = 10 pontos</p>
               <p>2º Lugar = 06 pontos</p>
               <p>3º Lugar = 04 pontos</p>
-              <p>4º Lugar = 002 pontos</p>
+              <p>4º Lugar = 02 pontos</p>
               <br/>
 
               <p>8º Pontuação Extra cada acerto para estes palpites valerá:</p>

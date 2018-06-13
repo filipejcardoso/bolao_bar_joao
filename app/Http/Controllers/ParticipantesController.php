@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Participantes;
 use App\Models\Jogos;
 use App\Models\Apostas;
+use App\Models\ApostasColocacao;
+use App\Models\ApostasFinais;
+use App\Models\ApostasPremiacao;
 use App\Helpers\Rest;
 use App\Helpers\Result;
 use App\Helpers\Helper;
@@ -24,6 +27,8 @@ class ParticipantesController extends Controller
         $builder = $rest->getBuilder();
         $responseBd = $rest->getCollection('paginate', null);
         $result = $responseBd['result'];
+
+        // return $responseBd['records'];
 
         $classificacao = [];
 
@@ -111,10 +116,8 @@ class ParticipantesController extends Controller
             {
                 $pontos = $this->getPontos($a['escore1'], $a['escore2'], $jogo->escore1, $jogo->escore2);
                 
-                if($pontos == 25)
+                if($pontos == 1)
                     $aposta['status'] = 3;   
-                else if($pontos == 10)
-                    $aposta['status'] = 2;   
                 else if($pontos == 0)
                     $aposta['status'] = 1;   
             }
@@ -134,14 +137,12 @@ class ParticipantesController extends Controller
     }
     public function getPontos($aposta1,$aposta2,$jogo1,$jogo2)
     {
-        if($aposta1 == $jogo1 && $aposta2 == $jogo2)
-            return 25;
-        else if($aposta1>$aposta2 && $jogo1 > $jogo2)
-            return 10;
+        if($aposta1>$aposta2 && $jogo1 > $jogo2)
+            return 1;
         else if($aposta1<$aposta2 && $jogo1 < $jogo2)
-            return 10;
+            return 1;
         else if($aposta1==$aposta2 && $jogo1 == $jogo2)
-            return 10;
+            return 1;
         else
             return 0;
     }
@@ -169,6 +170,59 @@ public function store(Request $request){
         $aposta->jogo_id = $jogo->id;
 
         $aposta->save();
+    }
+
+    $apostas_colocacao = new ApostasColocacao();
+    $apostas_colocacao->participante_id = $id;
+    $apostas_colocacao->save();
+
+    $apostas_premiacao = new ApostasPremiacao();
+    $apostas_premiacao->participante_id = $id;
+    $apostas_premiacao->save();
+
+    $max = 8;
+    for($i=1;$i<=($max*2);$i++)
+    {
+        $apostas_finais = new ApostasFinais();
+        $apostas_finais->fase = 'oitavas';
+        $apostas_finais->participante_id = $id;
+        $apostas_finais->save();
+    }
+
+    $max = 4;
+    for($i=1;$i<=($max*2);$i++)
+    {
+        $apostas_finais = new ApostasFinais();
+        $apostas_finais->fase ='quartas';
+        $apostas_finais->participante_id = $id;
+        $apostas_finais->save();
+    }
+
+    $max = 2;
+    for($i=1;$i<=($max*2);$i++)
+    {
+        $apostas_finais = new ApostasFinais();
+        $apostas_finais->fase = 'semi';
+        $apostas_finais->participante_id = $id;
+        $apostas_finais->save();
+    }
+
+    $max = 1;
+    for($i=1;$i<=($max*2);$i++)
+    {
+        $apostas_finais = new ApostasFinais();
+        $apostas_finais->fase = 'final';
+        $apostas_finais->participante_id = $id;
+        $apostas_finais->save();
+    }
+
+    $max = 1;
+    for($i=1;$i<=($max*2);$i++)
+    {
+        $apostas_finais = new ApostasFinais();
+        $apostas_finais->fase = 'tquarto';
+        $apostas_finais->participante_id = $id;
+        $apostas_finais->save();
     }
 
     return Response::json($response, $result->code);

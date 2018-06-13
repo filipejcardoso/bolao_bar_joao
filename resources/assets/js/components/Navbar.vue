@@ -6,12 +6,18 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 
+        <li><router-link to="/resumo"><i class="material-icons left">timeline</i>Resumo</router-link></li>
         <li><router-link to="/regulamento"><i class="material-icons left">receipt</i>Regulamento</router-link></li>
 
       </ul>
       
       <ul class="sidenav" id="mobile-demo">
 
+                <li v-on:click="esconder">
+                  <router-link class="waves-effect waves-cyan" to="/resumo">
+                    <i class="material-icons">timeline</i>Resumo
+                  </router-link>
+                </li>
                 <li v-on:click="esconder">
                   <router-link class="waves-effect waves-cyan" to="/regulamento">
                     <i class="material-icons">receipt</i>Regulamento
