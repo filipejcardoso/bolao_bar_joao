@@ -15,9 +15,9 @@
 		</div>
 		<div class="col s12 m3">
 			<participante></participante>
-			<p><span class="badge red black-text">00 PONTOS</span><br/>
-			<p><span class="badge blue black-text">10 PONTOS</span></p><br/>
-			<p><span class="badge green black-text">25 PONTOS</span></p>
+			<p><span class="badge red black-text">DERROTA</span><br/>
+			<p><span class="badge blue black-text">EMPATE</span></p><br/>
+			<p><span class="badge green black-text">VITORIA</span></p>
 		</div>
 	</div>
 </div>	

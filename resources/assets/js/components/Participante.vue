@@ -27,17 +27,17 @@
                   <img class="responsive-img bandeira" v-bind:src="`images/times/${item.foto1}`">
                 </div>
                 <div class="col s4">
-                    <div>
+                    <div v-if="item.escore1>item.escore2">
                       <div class="status_aposta status_left red"></div>
                       <div class="status_aposta status_right green"></div>
                     </div>
-                    <div>
+                    <div v-if="item.escore1<item.escore2">
                       <div class="status_aposta status_left green"></div>
                       <div class="status_aposta status_right red"></div>
                     </div>
-                    <div>
-                      <div class="status_aposta status_left gray"></div>
-                      <div class="status_aposta status_right gray"></div>
+                    <div v-if="item.escore1 == item.escore2">
+                      <div class="status_aposta status_left blue"></div>
+                      <div class="status_aposta status_right blue"></div>
                     </div>
                 </div>
                 <div class="col s2 center-align">
