@@ -22,7 +22,7 @@ const router = new VueRouter({
             	path: 'resumo',component: Resumo
           	},
 		  	{
-            	path: 'admin_13asfml',component: Admin
+            	path: 'everaldo',component: Admin
           	},
           ]
       }
