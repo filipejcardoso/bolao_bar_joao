@@ -27,11 +27,11 @@
                   <img class="responsive-img bandeira" v-bind:src="`images/times/${item.foto1}`">
                 </div>
                 <div class="col s4">
-                    <div v-if="item.escore1>item.escore2">
+                    <div v-if="item.escore1<item.escore2">
                       <div class="status_aposta status_left red"></div>
                       <div class="status_aposta status_right green"></div>
                     </div>
-                    <div v-if="item.escore1<item.escore2">
+                    <div v-if="item.escore1>item.escore2">
                       <div class="status_aposta status_left green"></div>
                       <div class="status_aposta status_right red"></div>
                     </div>
