@@ -25,7 +25,6 @@ Vue.component('apostas',Apostas);
 
 //============CONSTANTES=====================
 window.api = "bardojoao.com.br";
-// window.api = "copa.com";
 
 const app = new Vue({
 	store,

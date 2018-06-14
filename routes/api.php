@@ -29,5 +29,10 @@ Route::group(['prefix' =>'/jogadores'],function()
 {
 	Route::get('', ['uses' => 'JogadoresController@index']);
 });
+Route::group(['prefix' =>'/jogos'],function()
+{
+	Route::get('', ['uses' => 'JogosController@index']);
+	Route::patch('{id}', ['uses' => 'JogosController@update']);
+});
 
 
