@@ -4,13 +4,9 @@
       <table class="highlight">
         <thead>
           <tr>
-              <th width="7%">Posição</th>
-              <th width="58%">Nome</th>
-              <th width="7%" class="center-align">P</th>
-              <th width="7%" class="center-align">PC</th>
-              <th width="7%" class="center-align">PV</th>
-              <th width="7%" class="center-align">PP</th>
-              <th width="7%" class="center-align">AV</th>
+              <th width="10%">Posição</th>
+              <th width="80%">Nome</th>
+              <th width="10%" class="center-align">P</th>
           </tr>
         </thead>
 
@@ -19,10 +15,6 @@
             <td>{{ index + 1 }}</td>
             <td>{{ item.nome }}</td>
             <td class="pontos center-align">{{ item.p }}</td>
-            <td class="center-align">{{ item.pc }}</td>
-            <td class="escore_vencedor center-align">{{ item.pv }}</td>
-            <td class="center-align">{{ item.pp }}</td>
-            <td class="acerto_vencedor center-align">{{ item.av }}</td>
           </tr>
         </tbody>
       </table>
