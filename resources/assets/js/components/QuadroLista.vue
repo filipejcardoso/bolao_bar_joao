@@ -73,7 +73,7 @@ export default {
 
     this.loadQuadro();
     this.timer = setInterval(this.loadQuadro, 10000)
-    this.timer = setInterval(this.rolar, 500)
+    this.timer = setInterval(this.rolar, 1500)
     
   }
 }
