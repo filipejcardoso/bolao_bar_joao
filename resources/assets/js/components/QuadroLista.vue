@@ -47,7 +47,7 @@ export default {
             window.scrollTo(0, 0);
         }
         else
-        window.scrollTo(0, $(window).scrollTop() + 53);
+        window.scrollTo(0, $(window).scrollTop() + 55);
     },
     showApostas(index)
     {
@@ -59,7 +59,7 @@ export default {
         this.axios.get('http://'+window.api+'/api/quadro')
         .then(response => {
             this.participantes = response.data['records'];
-              M.toast({html: 'Atualizado'});
+            //   M.toast({html: 'Atualizado'});
         })
         .catch(e => {
 
@@ -72,8 +72,8 @@ export default {
         });
 
     this.loadQuadro();
-    this.timer = setInterval(this.loadQuadro, 5000)
-    this.timer = setInterval(this.rolar, 3000)
+    this.timer = setInterval(this.loadQuadro, 10000)
+    this.timer = setInterval(this.rolar, 500)
     
   }
 }

@@ -12,9 +12,9 @@
 
         <tbody>
           <tr  class="line" v-on:click.stop="showApostas(index)" v-for="(item, index) in participantes" :key="item.id">
-            <td v-if="index<15">{{ index + 1 }}</td>
-            <td v-if="index<15">{{ item.nome }}</td>
-            <td v-if="index<15" class="pontos center-align">{{ item.p }}</td>
+            <td v-if="index<17">{{ index + 1 }}</td>
+            <td v-if="index<17">{{ item.nome }}</td>
+            <td v-if="index<17" class="pontos center-align">{{ item.p }}</td>
           </tr>
         </tbody>
       </table>
@@ -29,9 +29,9 @@
 
         <tbody>
           <tr  class="line" v-on:click.stop="showApostas(index)" v-for="(item, index) in participantes" :key="item.id">
-            <td v-if="index>= 15 && index<30">{{ index + 1 }}</td>
-            <td v-if="index>= 15 && index<30">{{ item.nome }}</td>
-            <td v-if="index>= 15 && index<30" class="pontos center-align">{{ item.p }}</td>
+            <td v-if="index>= 17 && index<34">{{ index + 1 }}</td>
+            <td v-if="index>= 17 && index<34">{{ item.nome }}</td>
+            <td v-if="index>= 17 && index<34" class="pontos center-align">{{ item.p }}</td>
           </tr>
         </tbody>
       </table>
@@ -46,9 +46,9 @@
 
         <tbody>
           <tr  class="line" v-on:click.stop="showApostas(index)" v-for="(item, index) in participantes" :key="item.id">
-            <td v-if="index>= 30 && index<45">{{ index + 1 }}</td>
-            <td v-if="index>= 30 && index<45">{{ item.nome }}</td>
-            <td v-if="index>= 30 && index<45" class="pontos center-align">{{ item.p }}</td>
+            <td v-if="index>= 34 && index<51">{{ index + 1 }}</td>
+            <td v-if="index>= 34 && index<51">{{ item.nome }}</td>
+            <td v-if="index>= 34 && index<51" class="pontos center-align">{{ item.p }}</td>
           </tr>
         </tbody>
       </table>
@@ -63,9 +63,9 @@
 
         <tbody>
           <tr  class="line" v-on:click.stop="showApostas(index)" v-for="(item, index) in participantes" :key="item.id">
-            <td v-if="index>= 45 && index<60">{{ index + 1 }}</td>
-            <td v-if="index>= 45 && index<60">{{ item.nome }}</td>
-            <td v-if="index>= 45 && index<60" class="pontos center-align">{{ item.p }}</td>
+            <td v-if="index>= 51 && index<68">{{ index + 1 }}</td>
+            <td v-if="index>= 51 && index<68">{{ item.nome }}</td>
+            <td v-if="index>= 51 && index<68" class="pontos center-align">{{ item.p }}</td>
           </tr>
         </tbody>
       </table>
