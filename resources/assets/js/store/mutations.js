@@ -10,5 +10,8 @@ export default {
     },
     'CHANGE_JOGADORES'(state, payload){
         state.jogadores = payload;
+    },
+    'CHANGE_JOGOS'(state, payload){
+        state.jogos = payload;
     }
 }

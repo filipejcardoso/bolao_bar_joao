@@ -82,6 +82,72 @@ class ParticipantesController extends Controller
 
         return Response::json($response, $result->code);
 	}
+//-------------------------------------------------    
+public function quadro(Request $request){
+        $rest = new Rest();
+        $rest->model = 'App\Models\Participantes';
+        $rest->input = $request->toArray();
+
+        $builder = $rest->getBuilder();
+        $builder->orderBy('nome');
+        $responseBd = $rest->getCollection('paginate', null);
+        $result = $responseBd['result'];
+
+        // return $responseBd['records'];
+
+        $classificacao = [];
+
+        $participante = [];
+        foreach($responseBd['records'] as $p)
+        {
+            $participante['id'] = $p['id'];
+            $participante['nome'] = $p['nome'];
+            $participante['p'] = 0;
+            $participante['pc'] = 0;
+            $participante['pv'] = 0;
+            $participante['pp'] = 0;
+            $participante['av'] = 0;
+
+            foreach($p['aposta'] as $aposta)
+                if( $aposta['jogo']['status']>0)
+                {
+                    //PONTOS
+                    $participante['p'] = $participante['p'] + $this->getPontos($aposta['escore1'], $aposta['escore2'], $aposta['jogo']['escore1'], $aposta['jogo']['escore2']);
+
+                    //DESEMPATE
+                    //placar em cheio
+                    if($aposta['escore1'] == $aposta['jogo']['escore1'] && $aposta['escore2'] == $aposta['jogo']['escore2'])
+                        $participante['pc']++;
+                    
+                    //escore dos vencedores
+                    if(($aposta['jogo']['escore1'] > $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
+                        $participante['pv']++;
+                    else if(($aposta['jogo']['escore2'] > $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
+                        $participante['pv']++;
+
+                    //escore dos perdedores
+                    if(($aposta['jogo']['escore1'] < $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
+                        $participante['pp']++;
+                    else if(($aposta['jogo']['escore2'] < $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
+                        $participante['pp']++;
+
+                    //acerto vencedores
+                    if($aposta['escore1']>$aposta['escore2'] && $aposta['jogo']['escore1'] > $aposta['jogo']['escore2'])
+                        $participante['av']++;
+                    else if($aposta['escore1']<$aposta['escore2'] && $aposta['jogo']['escore1'] < $aposta['jogo']['escore2'])
+                        $participante['av']++;
+                }
+
+            array_push($classificacao, $participante);
+        }
+
+        // $cSort = Helper::sortCollectionDesc($classificacao, ['p','pc','pv','pp','av']);
+        $cSort = $classificacao;
+        $response['records'] = $cSort;
+        $response['result'] = $responseBd['result'];
+
+        return Response::json($response, $result->code);
+	}
 //-------------------------------------------------
     public function show(Request $request, $id){
         $responseBd = Participantes::with('aposta.jogo.time1','aposta.jogo.time2')->find($id);

@@ -1,5 +1,16 @@
 export default{
     id: '',
+    jogos:[{
+        id:'',
+        status:'',
+        time1:'',
+        time2: '',
+        escore1: '',
+        escore2: '',
+        foto1: '',
+        foto2: '',
+        data: ''  
+    }],
     participante: {
         nome: '',
         apostas: [{

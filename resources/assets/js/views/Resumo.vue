@@ -2,6 +2,7 @@
 <div class="container resumo">
 	<div class="row">
 		<div class="col s12 m9">
+			<jogo-atual></jogo-atual>
 			<classificacao></classificacao>
 		</div>
 		<div class="col s12 m3">

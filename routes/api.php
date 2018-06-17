@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+Route::get('quadro', ['uses' => 'ParticipantesController@quadro']);
+
 Route::group(['prefix' =>'participantes'],function()
 {
 	Route::get('', ['uses' => 'ParticipantesController@index']);
