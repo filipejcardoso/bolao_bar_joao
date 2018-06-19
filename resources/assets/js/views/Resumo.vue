@@ -2,7 +2,7 @@
 <div class="container resumo">
 	<div class="row">
 		<div class="col s12 m9">
-		    <img class="responsive-img" src="images/joao.png">
+		    <a href="http://bardojoao.com.br/images/joao_copa.jpg"><img class="responsive-img" src="images/joao.png"></a>
 			<jogo-atual></jogo-atual>
 		    <a href="https://www.facebook.com/EletroBidu/"><img class="responsive-img" src="images/bidu.png"></a>
 			<classificacao></classificacao>
