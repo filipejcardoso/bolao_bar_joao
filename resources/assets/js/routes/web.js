@@ -38,9 +38,9 @@ const router = new VueRouter({
 		  	{
             	path: 'updateresults',component: Jogos
           	},
-		  	{
-            	path: 'everaldo',component: Admin
-          	},
+		  	// {
+            // 	path: 'everaldo',component: Admin
+          	// },
           ]
       }
 	]
