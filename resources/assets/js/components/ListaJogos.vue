@@ -50,7 +50,7 @@ export default {
 methods: {
     loadJogos()
     {
-        const url = `http://copa.eletrobidu.com.br/api/jogos`;
+        const url = `http://${window.api}/api/jogos`;
         this.axios.get(url)
         .then(response => {
 
@@ -65,7 +65,7 @@ methods: {
       this.updateJogosJoao(id);
     },    
     updateJogosJoao(id){
-      const url = `http://bolao.bardojoao.com.br/api/jogos/${id}`;;
+      const url = `http://${window.api}/api/jogos/${id}`;;
       const payload = {"records":[{"escore1":`${$(`#input_1_${id}`).val()}`,"escore2":`${$(`#input_2_${id}`).val()}`}]};
       
       this.axios.patch(url, payload)
@@ -80,7 +80,7 @@ methods: {
         this.updateStatusJoao(id, status);
     },
     updateStatusJoao(id, status){
-      const url = `http://bolao.bardojoao.com.br/api/jogos/${id}`;
+      const url = `http://${window.api}/api/jogos/${id}`;
       const payload = {"records":[{"status":`${status}`}]};
       
         this.axios.patch(url, payload)

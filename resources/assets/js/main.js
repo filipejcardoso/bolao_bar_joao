@@ -34,7 +34,7 @@ Vue.component('tabela-jogos',TabelaJogos);
 Vue.component('quadro-lista',QuadroLista);
 //============CONSTANTES=====================
 // window.api = "dev.joao";
-window.api = "bardojoao.com.br";
+window.api = "sandbox.bardojoao.com.br";
 
 const app = new Vue({
 	store,
