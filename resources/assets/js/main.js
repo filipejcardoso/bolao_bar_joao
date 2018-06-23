@@ -36,6 +36,8 @@ Vue.component('quadro-lista',QuadroLista);
 // window.api = "dev.joao";
 window.api = "sandbox.bardojoao.com.br";
 
+// window.api = "sandbox.mogibahr.com.br";
+
 const app = new Vue({
 	store,
 	el: '#root',
