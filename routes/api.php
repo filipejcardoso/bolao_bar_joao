@@ -8,19 +8,27 @@ Route::group(['prefix' =>'participantes'],function()
 {
 	Route::get('', ['uses' => 'ParticipantesController@index']);
 	Route::get('{id}', ['uses' => 'ParticipantesController@show']);
-	// Route::post('', ['uses' => 'ParticipantesController@store']);
-	// Route::patch('{id}', ['uses' => 'ParticipantesController@update']);
-	// Route::delete('{id}', ['uses' => 'ParticipantesController@destroy']);
+	Route::post('', ['uses' => 'ParticipantesController@store']);
+	Route::patch('{id}', ['uses' => 'ParticipantesController@update']);
+	Route::delete('{id}', ['uses' => 'ParticipantesController@destroy']);
 	
 	Route::group(['prefix' =>'/{participantes}/apostas'],function()
 	{
 		Route::get('', ['uses' => 'ApostasController@index']);
-		// Route::patch('{id}', ['uses' => 'ApostasController@update']);
+		Route::patch('{id}', ['uses' => 'ApostasController@update']);
+	});
+	Route::group(['prefix' =>'/{participantes}/apostas_colocacaos'],function()
+	{
+		Route::patch('', ['uses' => 'ApostasColocacaosController@update']);
+	});
+	Route::group(['prefix' =>'/{participantes}/apostas_premiacaos'],function()
+	{
+		Route::patch('', ['uses' => 'ApostasPremiacaosController@update']);
 	});
 	Route::group(['prefix' =>'/{participantes}/apostas_finais'],function()
 	{
 		Route::get('', ['uses' => 'ApostasFinaisController@index']);
-		// Route::patch('{id}', ['uses' => 'ApostasFinaisController@update']);
+		Route::patch('{id}', ['uses' => 'ApostasFinaisController@update']);
 	});
 });
 Route::group(['prefix' =>'/times'],function()

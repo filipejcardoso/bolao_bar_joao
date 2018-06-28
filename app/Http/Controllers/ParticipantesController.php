@@ -28,8 +28,6 @@ class ParticipantesController extends Controller
         $responseBd = $rest->getCollection('paginate', null);
         $result = $responseBd['result'];
 
-        // return $responseBd['records'];
-
         $classificacao = [];
 
         $participante = [];
@@ -93,8 +91,6 @@ public function quadro(Request $request){
         $responseBd = $rest->getCollection('paginate', null);
         $result = $responseBd['result'];
 
-        // return $responseBd['records'];
-
         $classificacao = [];
 
         $participante = [];
@@ -150,11 +146,15 @@ public function quadro(Request $request){
 	}
 //-------------------------------------------------
     public function show(Request $request, $id){
-        $responseBd = Participantes::with('aposta.jogo.time1','aposta.jogo.time2')->find($id);
+        $responseBd = Participantes::with('aposta.jogo.time1','aposta.jogo.time2','apostas_colocacao.primeiro','apostas_colocacao.segundo','apostas_colocacao.terceiro','apostas_colocacao.quarto','apostas_premiacao.artilheiro','apostas_premiacao.ataque','apostas_premiacao.defesa','apostas_finais.time')->find($id);
+
+        // return($responseBd);
 
         $participante['nome'] = $responseBd['nome'];
         $participante['apostas'] = [];
+        $participante['apostas_finais'] = [];
 
+        //APOSTAS
         foreach($responseBd['aposta'] as $a)
         {
             $jogo = json_decode($a['jogo']);
@@ -191,6 +191,77 @@ public function quadro(Request $request){
             array_push($participante['apostas'], $aposta);
         }
 
+        //APOSTAS CLASSIFICACAO
+        $colocacao = json_decode($responseBd['apostas_colocacao']);
+        if($colocacao->primeiro)
+            $nprimeiro = $colocacao->primeiro->nome;
+        else
+            $nprimeiro = $colocacao->primeiro;
+
+        if($colocacao->segundo)
+            $nsegundo = $colocacao->segundo->nome;
+        else
+            $nsegundo = $colocacao->segundo;
+
+        if($colocacao->terceiro)
+            $nterceiro = $colocacao->terceiro->nome;
+        else
+            $nterceiro = $colocacao->terceiro;
+
+        if($colocacao->quarto)
+            $nquarto = $colocacao->quarto->nome;
+        else
+            $nquarto = $colocacao->quarto;
+            
+        $participante['apostas_colocacao']['primeiro'] = $nprimeiro;
+        $participante['apostas_colocacao']['segundo'] = $nsegundo;
+        $participante['apostas_colocacao']['terceiro'] = $nterceiro;
+        $participante['apostas_colocacao']['quarto'] = $nquarto;
+
+        //APOSTAS PREMIACAO
+        $colocacao = json_decode($responseBd['apostas_premiacao']);
+        if($colocacao->artilheiro)
+            $nartilheiro = $colocacao->artilheiro->nome;
+        else
+            $nartilheiro = $colocacao->artilheiro;
+
+        if($colocacao->ataque)
+            $nataque = $colocacao->ataque->nome;
+        else
+            $nataque = $colocacao->ataque;
+
+        if($colocacao->defesa)
+            $ndefesa = $colocacao->defesa->nome;
+        else
+            $ndefesa = $colocacao->defesa;
+
+        $participante['apostas_premiacao']['artilheiro'] = $nartilheiro;
+        $participante['apostas_premiacao']['ataque'] = $nataque;
+        $participante['apostas_premiacao']['defesa'] = $ndefesa;
+
+        //APOSTAS FINAIS
+        $apostas_finais['oitavas'] = [];
+        $apostas_finais['quartas'] = [];
+        $apostas_finais['semi'] = [];
+        $apostas_finais['final'] = [];
+        $apostas_finais['tquarto'] = [];
+
+        foreach($responseBd['apostas_finais'] as $apostaF)
+        {
+            $final = json_decode($apostaF);
+            $apostaF_aux['id'] = $final->id;
+            $apostaF_aux['time_id'] = $final->time_id;
+            
+            if($final->time != null)
+                $apostaF_aux['time'] = $final->time->nome;
+            else
+            $apostaF_aux['time'] = $final->time;
+
+            array_push($apostas_finais[$final->fase], $apostaF_aux);
+        }
+        
+        $participante['apostas_finais'] = $apostas_finais;
+        
         $response['records'] = $participante;
 
         $result = new Result();

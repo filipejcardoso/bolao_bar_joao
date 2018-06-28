@@ -33,10 +33,8 @@ Vue.component('jogo-atual',JogoAtual);
 Vue.component('tabela-jogos',TabelaJogos);
 Vue.component('quadro-lista',QuadroLista);
 //============CONSTANTES=====================
-// window.api = "dev.joao";
-window.api = "sandbox.bardojoao.com.br";
-
-// window.api = "sandbox.mogibahr.com.br";
+window.api = "dev.joao";
+// window.api = "sandbox.bardojoao.com.br";
 
 const app = new Vue({
 	store,

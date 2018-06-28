@@ -72,8 +72,6 @@ class ApostasFinaisController extends Controller
             {
                 $recurso = ApostasFinais::findOrFail($id);
                 $newresource = $request->toarray();
-
-                // dd($newresource);
                 
                 $rest = new Rest();
                 $rest->model = 'App\Models\ApostasFinais';

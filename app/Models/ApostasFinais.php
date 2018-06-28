@@ -8,7 +8,7 @@ class ApostasFinais extends Model
 {
 	protected $table = 'apostas_finais';
     protected $primaryKey = 'id';
-    protected $fillable = ['fase','time_id'];
+    protected $fillable = ['time_id'];
 
     static public function relacoes()
     {

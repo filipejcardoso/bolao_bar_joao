@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     loadParticipantes(){
-      this.axios.get('http://'+window.api+'/api/participantes')
+      this.axios.get(`http://${window.api}/api/participantes`)
       .then(response => {
 
         this.participantes = response.data['records'];
@@ -70,7 +70,7 @@ export default {
         const payload = this.participantes[index].id;
         this.$store.commit('CHANGE_ID', payload)
 
-        this.axios.get('http://'+window.api+'/api/participantes/'+this.$store.state.id)
+        this.axios.get(`http://${window.api}/api/participantes/`+this.$store.state.id)
         .then(response => {
 
           const payloadParticipante = response.data['records'];

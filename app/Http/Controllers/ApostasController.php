@@ -57,8 +57,6 @@ class ApostasController extends Controller
                 $recurso = Apostas::findOrFail($id);
                 $newresource = $request->toarray();
 
-                // dd($newresource);
-                
                 $rest = new Rest();
                 $rest->model = 'App\Models\Apostas';
                 $rest->input = $newresource;

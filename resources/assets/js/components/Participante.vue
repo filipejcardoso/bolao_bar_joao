@@ -1,6 +1,20 @@
 <template>
 	<div>
 	  <h5>{{this.$store.state.participante.nome}}</h5>
+    <br/>
+      <!-- CLASSIFAICAÇÃO -->
+      <h6>1ºColocado: {{this.$store.state.participante.apostas_colocacao.primeiro}}</h6>
+      <h6>2ºColocado: {{this.$store.state.participante.apostas_colocacao.segundo}}</h6>
+      <h6>3ºColocado: {{this.$store.state.participante.apostas_colocacao.terceiro}}</h6>
+      <h6>4ºColocado: {{this.$store.state.participante.apostas_colocacao.quarto}}</h6>
+      <br/>
+
+      <!-- PREMIAÇÃO -->
+      <h6>Artilheiro: {{this.$store.state.participante.apostas_premiacao.artilheiro}}</h6>
+      <h6>Melhor Ataque: {{this.$store.state.participante.apostas_premiacao.ataque}}</h6>
+      <h6>Melhor Defesa: {{this.$store.state.participante.apostas_premiacao.defesa}}</h6>
+      <br/>
+      <!-- APOSTAS -->
       <table class="highlight">
         <thead>
           <tr>
@@ -53,7 +67,47 @@
             </td>
           </tr>
         </tbody>
-      </table>    
+      </table>  
+      <!-- FINAIS   -->
+        <div class="row">
+            <h5>Oitavas</h5>
+              <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.oitavas" :key="item.id">
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.oitavas[index].time}}</span>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h5>Quartas</h5>
+              <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.quartas" :key="item.id">
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.oitavas[index].time}}</span>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h5>Semi-Final</h5>
+              <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.semi" :key="item.id">
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.semi[index].time}}</span>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h5>Final</h5>
+              <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.final" :key="item.id">
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.final[index].time}}</span>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h5>Terceiro e Quarto</h5>
+              <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.tquarto" :key="item.id">
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.tquarto[index].time}}</span>
+            </div>
+        </div>
+        <br/>
     </div>
 </template>
 <script>

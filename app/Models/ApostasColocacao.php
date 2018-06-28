@@ -8,7 +8,7 @@ class ApostasColocacao extends Model
 {
 	protected $table = 'apostas_colocacaos';
     protected $primaryKey = 'id';
-    protected $fillable = ['primeiro', 'segundo','terceiro','quarto'];
+    protected $fillable = ['primeiro','segundo','terceiro','quarto'];
 
     static public function relacoes()
     {

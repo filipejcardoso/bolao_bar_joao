@@ -56,7 +56,7 @@ export default{
             ataque: '',
             defesa: ''
         },
-        apostas_premiacao: {
+        apostas_colocacao: {
             id: '',
             primeiro: '',
             segundo: '',
