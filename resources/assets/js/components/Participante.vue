@@ -80,7 +80,7 @@
         <div class="row">
             <h5>Quartas</h5>
               <div class="col s12"  v-for="(item,index) in this.$store.state.participante.apostas_finais.quartas" :key="item.id">
-                <span>{{index+1}} - {{$store.state.participante.apostas_finais.oitavas[index].time}}</span>
+                <span>{{index+1}} - {{$store.state.participante.apostas_finais.quartas[index].time}}</span>
             </div>
         </div>
         <br/>
