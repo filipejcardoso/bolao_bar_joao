@@ -105,7 +105,7 @@
         <div class="row">
             <h5>Quartas</h5>
               <div class="col s12 m3 select_finais"  v-for="(item,index) in this.$store.state.participante.apostas_finais.quartas" :key="item.id">
-                <span>{{$store.state.participante.apostas_finais.oitavas[index].time}}</span>
+                <span>{{$store.state.participante.apostas_finais.quartas[index].time}}</span>
                 <select v-on:change="updateFinais(item.id)" v-bind:id="`select_${item.id}`" class="browser-default">
                   <option value="" disabled selected>Selecione um time</option>
                   <option v-for="(team) in $store.state.times" :key="team.id" :value="team.id" class="left">{{team.nome}}</option>
