@@ -42,7 +42,7 @@ methods: {
   },
   created(){
       this.loadAtual();
-      this.timer = setInterval(this.loadAtual, 3000)
+      // this.timer = setInterval(this.loadAtual, 3000)
   }
 }
 </script>
