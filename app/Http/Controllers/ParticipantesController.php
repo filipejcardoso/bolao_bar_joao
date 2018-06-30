@@ -46,31 +46,56 @@ class ParticipantesController extends Controller
                 {
                     //PONTOS
                     $participante['p'] = $participante['p'] + $this->getPontos($aposta['escore1'], $aposta['escore2'], $aposta['jogo']['escore1'], $aposta['jogo']['escore2']);
+               }
+            
+            //APOSTAS FINAIS
+            $apostas_finais['oitavas'] = [];
+            $apostas_finais['quartas'] = [];
+            $apostas_finais['semi'] = [];
+            $apostas_finais['final'] = [];
+            $apostas_finais['tquarto'] = [];
 
-                    //DESEMPATE
-                    //placar em cheio
-                    if($aposta['escore1'] == $aposta['jogo']['escore1'] && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pc']++;
-                    
-                    //escore dos vencedores
-                    if(($aposta['jogo']['escore1'] > $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
-                        $participante['pv']++;
-                    else if(($aposta['jogo']['escore2'] > $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pv']++;
+            foreach($p['apostas_finais'] as $apostaF)
+            {
+                $final = json_decode($apostaF);
+                $apostaF_aux['id'] = $final->id;
+                $apostaF_aux['time_id'] = $final->time_id;
+                
+                if($final->time != null)
+                    $apostaF_aux['time'] = $final->time->nome;
+                else
+                $apostaF_aux['time'] = $final->time;
 
-                    //escore dos perdedores
-                    if(($aposta['jogo']['escore1'] < $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
-                        $participante['pp']++;
-                    else if(($aposta['jogo']['escore2'] < $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pp']++;
+                array_push($apostas_finais[$final->fase], $apostaF_aux);
+            }
 
-                    //acerto vencedores
-                    if($aposta['escore1']>$aposta['escore2'] && $aposta['jogo']['escore1'] > $aposta['jogo']['escore2'])
-                        $participante['av']++;
-                    else if($aposta['escore1']<$aposta['escore2'] && $aposta['jogo']['escore1'] < $aposta['jogo']['escore2'])
-                        $participante['av']++;
-                }
+            $resultados = ResultadosFinaisController::getResults();
 
+            foreach($resultados['oitavas'] as $r)
+                foreach($apostas_finais['oitavas'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 2;
+
+            foreach($resultados['quartas'] as $r)
+                foreach($apostas_finais['quartas'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 3;
+
+            foreach($resultados['semi'] as $r)
+                foreach($apostas_finais['semi'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 4;
+
+            foreach($resultados['tquarto'] as $r)
+                foreach($apostas_finais['tquarto'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 5;
+
+            foreach($resultados['final'] as $r)
+                foreach($apostas_finais['final'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 6;
+                                    
             array_push($classificacao, $participante);
         }
 
@@ -109,31 +134,55 @@ public function quadro(Request $request){
                 {
                     //PONTOS
                     $participante['p'] = $participante['p'] + $this->getPontos($aposta['escore1'], $aposta['escore2'], $aposta['jogo']['escore1'], $aposta['jogo']['escore2']);
-
-                    //DESEMPATE
-                    //placar em cheio
-                    if($aposta['escore1'] == $aposta['jogo']['escore1'] && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pc']++;
-                    
-                    //escore dos vencedores
-                    if(($aposta['jogo']['escore1'] > $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
-                        $participante['pv']++;
-                    else if(($aposta['jogo']['escore2'] > $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pv']++;
-
-                    //escore dos perdedores
-                    if(($aposta['jogo']['escore1'] < $aposta['jogo']['escore2']) && $aposta['escore1'] == $aposta['jogo']['escore1'])
-                        $participante['pp']++;
-                    else if(($aposta['jogo']['escore2'] < $aposta['jogo']['escore1']) && $aposta['escore2'] == $aposta['jogo']['escore2'])
-                        $participante['pp']++;
-
-                    //acerto vencedores
-                    if($aposta['escore1']>$aposta['escore2'] && $aposta['jogo']['escore1'] > $aposta['jogo']['escore2'])
-                        $participante['av']++;
-                    else if($aposta['escore1']<$aposta['escore2'] && $aposta['jogo']['escore1'] < $aposta['jogo']['escore2'])
-                        $participante['av']++;
                 }
+            //APOSTAS FINAIS
+            $apostas_finais['oitavas'] = [];
+            $apostas_finais['quartas'] = [];
+            $apostas_finais['semi'] = [];
+            $apostas_finais['final'] = [];
+            $apostas_finais['tquarto'] = [];
 
+            foreach($p['apostas_finais'] as $apostaF)
+            {
+                $final = json_decode($apostaF);
+                $apostaF_aux['id'] = $final->id;
+                $apostaF_aux['time_id'] = $final->time_id;
+                
+                if($final->time != null)
+                    $apostaF_aux['time'] = $final->time->nome;
+                else
+                $apostaF_aux['time'] = $final->time;
+
+                array_push($apostas_finais[$final->fase], $apostaF_aux);
+            }
+
+            $resultados = ResultadosFinaisController::getResults();
+
+            foreach($resultados['oitavas'] as $r)
+                foreach($apostas_finais['oitavas'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 2;
+
+            foreach($resultados['quartas'] as $r)
+                foreach($apostas_finais['quartas'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 3;
+
+            foreach($resultados['semi'] as $r)
+                foreach($apostas_finais['semi'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 4;
+
+            foreach($resultados['tquarto'] as $r)
+                foreach($apostas_finais['tquarto'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 5;
+
+            foreach($resultados['final'] as $r)
+                foreach($apostas_finais['final'] as $af)
+                    if($af['time_id'] == $r['time_id'])
+                        $participante['p'] = $participante['p'] + 6;
+                
             array_push($classificacao, $participante);
         }
 

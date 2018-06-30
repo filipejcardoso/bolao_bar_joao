@@ -44,5 +44,11 @@ Route::group(['prefix' =>'/jogos'],function()
 	Route::get('', ['uses' => 'JogosController@index']);
 	Route::patch('{id}', ['uses' => 'JogosController@update']);
 });
+Route::group(['prefix' =>'/resultados_finais'],function()
+{
+	Route::get('', ['uses' => 'ResultadosFinaisController@index']);
+	Route::post('', ['uses' => 'ResultadosFinaisController@store']);
+	Route::patch('{id}', ['uses' => 'ResultadosFinaisController@update']);
+});
 
 

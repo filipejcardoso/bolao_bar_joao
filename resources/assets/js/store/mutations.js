@@ -13,5 +13,8 @@ export default {
     },
     'CHANGE_JOGOS'(state, payload){
         state.jogos = payload;
+    },
+    'CHANGE_RESULTADOS'(state, payload){
+        state.resultados_finais = payload;
     }
 }

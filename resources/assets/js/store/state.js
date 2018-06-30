@@ -1,5 +1,32 @@
 export default{
     id: '',
+    resultados_finais : {
+        oitavas:[{
+            id: '',
+            time_id: '',
+            time: ''
+        }],
+        quartas:[{
+            id: '',
+            time_id: '',
+            time: ''
+        }],
+        semi:[{
+            id: '',
+            time_id: '',
+            time: ''
+        }],
+        final:[{
+            id: '',
+            time_id: '',
+            time: ''
+        }],
+        tquarto:[{
+            id: '',
+            time_id: '',
+            time: ''
+        }],
+},
     jogos:[{
         id:'',
         status:'',
