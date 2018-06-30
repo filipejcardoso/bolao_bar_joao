@@ -32,15 +32,15 @@ const router = new VueRouter({
 		  	{
             	path: 'quadro',component: Quadro
           	},
-		  	// {
-            // 	path: 'quadro_classificacao',component: QuadroClassificacao
-          	// },
+		  	{
+            	path: 'quadro_classificacao',component: QuadroClassificacao
+          	},
 		  	{
             	path: 'updateresults',component: Jogos
           	},
-		  	{
-            	path: 'everaldo',component: Admin
-          	},
+		  	// {
+            // 	path: 'everaldo',component: Admin
+          	// },
           ]
       }
 	]
