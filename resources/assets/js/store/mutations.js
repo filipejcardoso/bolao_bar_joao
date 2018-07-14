@@ -16,5 +16,8 @@ export default {
     },
     'CHANGE_RESULTADOS'(state, payload){
         state.resultados_finais = payload;
+    },
+    'CHANGE_COLOCACAO'(state, payload){
+        state.resultado_colocacao = payload;
     }
 }

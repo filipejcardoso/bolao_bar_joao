@@ -50,5 +50,11 @@ Route::group(['prefix' =>'/resultados_finais'],function()
 	Route::post('', ['uses' => 'ResultadosFinaisController@store']);
 	Route::patch('{id}', ['uses' => 'ResultadosFinaisController@update']);
 });
+Route::group(['prefix' =>'/resultados_colocacaos'],function()
+{
+	Route::get('', ['uses' => 'ResultadosColocacaosController@index']);
+	Route::post('', ['uses' => 'ResultadosColocacaosController@store']);
+	Route::patch('{id}', ['uses' => 'ResultadosColocacaosController@update']);
+});
 
 

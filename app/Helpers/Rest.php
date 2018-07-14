@@ -406,7 +406,6 @@ class Rest
                         try
                         {
                             $relationInstance;
-                            dd($valor[$value]);
                             if(array_key_exists('id', $valor[$value]))
                             {
                                 $relationInstance = $relacoesModel[$key]::findOrFail($valor[$value]['id']);

@@ -1,5 +1,15 @@
 export default{
     id: '',
+    resultado_colocacao:
+    {
+        primeiro: {
+            id:'',
+            nome:''
+        },
+        segundo: '',
+        terceiro: '',
+        quarto: ''
+    },
     resultados_finais : {
         oitavas:[{
             id: '',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResultadosColocacao extends Model
 {
-	protected $table = 'resultados_colocacos';
+	protected $table = 'resultados_colocacaos';
     protected $primaryKey = 'id';
     protected $fillable = ['primeiro','segundo','terceiro','quarto'];
 
