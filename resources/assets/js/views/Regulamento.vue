@@ -48,9 +48,9 @@
               <br/>
 
               <p>8º Pontuação Extra cada acerto para estes palpites valerá:</p>
-              <p>Artilheiro da Copa = 10 pontos</p>
+              <p>Artilheiro da Copa = 08 pontos</p>
               <p>Melhor Ataque = 06 pontos</p>
-              <p>Melhor Defesa = 04 pontos</p>
+              <p>Melhor Defesa = 06 pontos</p>
               <br/>
 
               <p>9º Divisão da Arrecadação final do Bolão:</p>

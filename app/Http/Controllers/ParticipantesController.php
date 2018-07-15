@@ -118,13 +118,13 @@ class ParticipantesController extends Controller
             $premiacaoF = json_decode($p['apostas_premiacao']);
 
             if($resultados_premiacao->artilheiro->id == $premiacaoF->artilheiro->id)
-                $participante['p'] = $participante['p'] + 10;
+                $participante['p'] = $participante['p'] + 8;
 
             if($resultados_premiacao->ataque->id == $premiacaoF->ataque->id)
                 $participante['p'] = $participante['p'] + 6;
 
             if($resultados_premiacao->defesa->id == $premiacaoF->defesa->id)
-                $participante['p'] = $participante['p'] + 4;
+                $participante['p'] = $participante['p'] + 6;
 
             array_push($classificacao, $participante);
         }
@@ -234,13 +234,13 @@ public function quadro(Request $request){
             $premiacaoF = json_decode($p['apostas_premiacao']);
 
             if($resultados_premiacao->artilheiro->id == $premiacaoF->artilheiro->id)
-                $participante['p'] = $participante['p'] + 10;
+                $participante['p'] = $participante['p'] + 8;
 
             if($resultados_premiacao->ataque->id == $premiacaoF->ataque->id)
                 $participante['p'] = $participante['p'] + 6;
 
             if($resultados_premiacao->defesa->id == $premiacaoF->defesa->id)
-                $participante['p'] = $participante['p'] + 4;
+                $participante['p'] = $participante['p'] + 6;
                 
             array_push($classificacao, $participante);
         }
