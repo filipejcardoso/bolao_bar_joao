@@ -3,11 +3,10 @@
 use Illuminate\Http\Request;
 
 Route::get('quadro', ['uses' => 'ParticipantesController@quadro']);
-Route::get('participantes', ['uses' => 'ParticipantesController@index']);
 
 Route::group(['prefix' =>'participantes'],function()
 {
-	// Route::get('', ['uses' => 'ParticipantesController@index']);
+	Route::get('', ['uses' => 'ParticipantesController@index']);
 	Route::get('{id}', ['uses' => 'ParticipantesController@show']);
 	Route::post('', ['uses' => 'ParticipantesController@store']);
 	// Route::patch('{id}', ['uses' => 'ParticipantesController@update']);
@@ -32,6 +31,7 @@ Route::group(['prefix' =>'participantes'],function()
 		Route::patch('{id}', ['uses' => 'ApostasFinaisController@update']);
 	});
 });
+
 Route::group(['prefix' =>'/times'],function()
 {
 	Route::get('', ['uses' => 'TimesController@index']);
