@@ -56,5 +56,11 @@ Route::group(['prefix' =>'/resultados_colocacaos'],function()
 	Route::post('', ['uses' => 'ResultadosColocacaosController@store']);
 	Route::patch('{id}', ['uses' => 'ResultadosColocacaosController@update']);
 });
+Route::group(['prefix' =>'/resultados_premiacaos'],function()
+{
+	Route::get('', ['uses' => 'ResultadosPremiacaosController@index']);
+	Route::post('', ['uses' => 'ResultadosPremiacaosController@store']);
+	Route::patch('{id}', ['uses' => 'ResultadosPremiacaosController@update']);
+});
 
 

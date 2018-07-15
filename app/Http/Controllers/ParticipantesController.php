@@ -113,6 +113,19 @@ class ParticipantesController extends Controller
             if($resultados_colocacao->quarto->id == $colocacaoF->quarto->id)
                 $participante['p'] = $participante['p'] + 2;
 
+            //APOSTAS PREMIAÇÃO
+            $resultados_premiacao = json_decode(ResultadosPremiacaosController::getResults()[0]);
+            $premiacaoF = json_decode($p['apostas_premiacao']);
+
+            if($resultados_premiacao->artilheiro->id == $premiacaoF->artilheiro->id)
+                $participante['p'] = $participante['p'] + 10;
+
+            if($resultados_premiacao->ataque->id == $premiacaoF->ataque->id)
+                $participante['p'] = $participante['p'] + 6;
+
+            if($resultados_premiacao->defesa->id == $premiacaoF->defesa->id)
+                $participante['p'] = $participante['p'] + 4;
+
             array_push($classificacao, $participante);
         }
 
@@ -199,6 +212,35 @@ public function quadro(Request $request){
                 foreach($apostas_finais['final'] as $af)
                     if($af['time_id'] == $r['time_id'])
                         $participante['p'] = $participante['p'] + 6;
+
+            //APOSTAS COLOCAÇÃO
+            $resultados_colocacao = json_decode(ResultadosColocacaosController::getResults()[0]);
+            $colocacaoF = json_decode($p['apostas_colocacao']);
+
+            if($resultados_colocacao->primeiro->id == $colocacaoF->primeiro->id)
+                $participante['p'] = $participante['p'] + 10;
+
+            if($resultados_colocacao->segundo->id == $colocacaoF->segundo->id)
+                $participante['p'] = $participante['p'] + 6;
+
+            if($resultados_colocacao->terceiro->id == $colocacaoF->terceiro->id)
+                $participante['p'] = $participante['p'] + 4;
+
+            if($resultados_colocacao->quarto->id == $colocacaoF->quarto->id)
+                $participante['p'] = $participante['p'] + 2;
+
+            //APOSTAS PREMIAÇÃO
+            $resultados_premiacao = json_decode(ResultadosPremiacaosController::getResults()[0]);
+            $premiacaoF = json_decode($p['apostas_premiacao']);
+
+            if($resultados_premiacao->artilheiro->id == $premiacaoF->artilheiro->id)
+                $participante['p'] = $participante['p'] + 10;
+
+            if($resultados_premiacao->ataque->id == $premiacaoF->ataque->id)
+                $participante['p'] = $participante['p'] + 6;
+
+            if($resultados_premiacao->defesa->id == $premiacaoF->defesa->id)
+                $participante['p'] = $participante['p'] + 4;
                 
             array_push($classificacao, $participante);
         }

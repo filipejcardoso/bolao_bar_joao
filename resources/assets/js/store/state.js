@@ -1,11 +1,14 @@
 export default{
     id: '',
+    resultado_premiacao:
+    {
+        artilheiro: '',
+        ataque: '',
+        defesa: ''
+    },
     resultado_colocacao:
     {
-        primeiro: {
-            id:'',
-            nome:''
-        },
+        primeiro: '',
         segundo: '',
         terceiro: '',
         quarto: ''

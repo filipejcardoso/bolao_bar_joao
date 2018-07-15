@@ -33,6 +33,31 @@
           </div>
 
 
+        <div class="row">
+            <div class="col s12 m4">
+                  <h6>{{this.$store.state.resultado_premiacao.artilheiro.nome}}</h6>
+                  <label>Artilheiro</label>
+                  <select v-on:change="updatePremiacao('artilheiro')" v-model="premiacao.artilheiro" class="browser-default">
+                    <option v-for="(item) in this.$store.state.jogadores" :key="item.id" :value="item.id" class="left">{{item.nome}}</option>
+                  </select>
+            </div>
+            <div class="col s12 m4">
+                  <h6>{{this.$store.state.resultado_premiacao.ataque.nome}}</h6>
+                  <label>Melhor Ataque</label>
+                  <select v-on:change="updatePremiacao('ataque')" v-model="premiacao.ataque" class="browser-default">
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" :value="item.id" class="left">{{item.nome}}</option>
+                  </select>
+            </div>
+            <div class="col s12 m4">
+                  <h6>{{this.$store.state.resultado_premiacao.defesa.nome}}</h6>
+                  <label>Melhor Defesa</label>
+                  <select v-on:change="updatePremiacao('defesa')" v-model="premiacao.defesa" class="browser-default">
+                    <option v-for="(item) in this.$store.state.times" :key="item.id" :value="item.id" class="left">{{item.nome}}</option>
+                  </select>
+            </div>
+          </div>
+
+
 	<div class="row">
 		<div class="col s12">
 			<lista-jogos></lista-jogos>
@@ -113,6 +138,13 @@ data: function () {
         quarto : ''
       }
     ],
+    premiacao: [
+      {
+        ataque : '',
+        defesa : '',
+        artilheiro : ''
+      }
+    ],
     finais:[],
   }
 },created()
@@ -120,6 +152,7 @@ data: function () {
 	this.loadRecursos();
   this.loadResultados();
   this.loadColocacao();
+  this.loadPremiacao();
 	$(document).ready(function(){
 		$('select').formSelect();
 	});
@@ -177,6 +210,35 @@ methods: {
         })
         .catch(e => {
         })
+    },
+    loadPremiacao() {
+        this.axios.get(`http://${window.api}/api/resultados_premiacaos`)
+        .then(response => {
+
+          const payload = response.data['records'][0];
+          this.$store.commit('CHANGE_PREMIACAO', payload)
+        })
+        .catch(e => {
+        })
+    },
+    updatePremiacao(field){
+      const url = `http://${window.api}/api/resultados_premiacaos/1`;
+      let payload = '';
+
+      if(field == 'artilheiro')
+        payload = {"records":[{"artilheiro":this.premiacao.artilheiro}]};
+      else if(field == 'ataque')
+        payload = {"records":[{"ataque":this.premiacao.ataque}]};
+      else if(field == 'defesa')
+        payload = {"records":[{"defesa":this.premiacao.defesa}]};
+
+      this.axios.patch(url, payload)
+      .then(response => {
+          M.toast({html: 'Alterado com sucesso!!!'});
+       })
+      .catch(e => {
+        alert(e)
+      })
     },
     updateColocacao($field){
       const url = `http://${window.api}/api/resultados_colocacaos/1`;

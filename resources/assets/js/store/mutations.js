@@ -19,5 +19,8 @@ export default {
     },
     'CHANGE_COLOCACAO'(state, payload){
         state.resultado_colocacao = payload;
+    },
+    'CHANGE_PREMIACAO'(state, payload){
+        state.resultado_premiacao = payload;
     }
 }
