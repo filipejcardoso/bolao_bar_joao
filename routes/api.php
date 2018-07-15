@@ -3,13 +3,14 @@
 use Illuminate\Http\Request;
 
 Route::get('quadro', ['uses' => 'ParticipantesController@quadro']);
+Route::get('participantes', ['uses' => 'ParticipantesController@index']);
 
 Route::group(['prefix' =>'participantes'],function()
 {
-	Route::get('', ['uses' => 'ParticipantesController@index']);
+	// Route::get('', ['uses' => 'ParticipantesController@index']);
 	Route::get('{id}', ['uses' => 'ParticipantesController@show']);
 	Route::post('', ['uses' => 'ParticipantesController@store']);
-	Route::patch('{id}', ['uses' => 'ParticipantesController@update']);
+	// Route::patch('{id}', ['uses' => 'ParticipantesController@update']);
 	// Route::delete('{id}', ['uses' => 'ParticipantesController@destroy']);
 	
 	Route::group(['prefix' =>'/{participantes}/apostas'],function()
@@ -62,5 +63,3 @@ Route::group(['prefix' =>'/resultados_premiacaos'],function()
 	Route::post('', ['uses' => 'ResultadosPremiacaosController@store']);
 	Route::patch('{id}', ['uses' => 'ResultadosPremiacaosController@update']);
 });
-
-
