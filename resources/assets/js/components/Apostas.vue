@@ -37,7 +37,6 @@
           <br/><br/>
 
         <div class="row">
-
             <div class="col s12 m4">
                   <h6>{{this.$store.state.participante.apostas_premiacao.artilheiro}}</h6>
                   <label>Artilheiro</label>
